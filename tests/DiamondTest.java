@@ -6,8 +6,6 @@ import lab4.Point;
 import lab5.Diamond;
 
 public class DiamondTest {
-    
-    // Test fixtures - 预定义的测试数据
     private Point squareA = new Point(0, 0);
     private Point squareB = new Point(1, 0);
     private Point squareC = new Point(1, 1);
