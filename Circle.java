@@ -1,3 +1,5 @@
+import lab4.Point;
+
 public class Circle {
     Point centre;
     double radius;
