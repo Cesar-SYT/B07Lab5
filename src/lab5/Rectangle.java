@@ -32,7 +32,6 @@ public class Rectangle {
 			length = dBC;
 		}
 		
-		// 验证勾股定理：a² + b² = c²
 		if (Math.abs(width * width + length * length - diagonal * diagonal) > 0.001) {
 			throw new IllegalArgumentException("Can't form a Rectangle!");
 		}
