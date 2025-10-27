@@ -18,18 +18,22 @@ public class Rectangle {
 		double dAB = A.distance(B);
 		double dBC = B.distance(C);
 		double dAC = A.distance(C);
-        diagonal = Math.max(dAB, Math.max(dBC, dAC));
-        if (diagonal == dAB) {
-            width = Math.min(dBC, dAC);
-            length = Math.max(dBC, dAC);
-        } else if (diagonal == dBC) {
-            width = Math.min(dAB, dAC);
-            length = Math.max(dAB, dAC);
-        } else {
-            width = Math.min(dAB, dBC);
-            length = Math.max(dAB, dBC);
-        }
-		if (width * width + length * length != diagonal * diagonal) {
+		
+		diagonal = Math.max(dAB, Math.max(dBC, dAC));
+		
+		if (diagonal == dAB) {
+			width = dBC;
+			length = dAC;
+		} else if (diagonal == dBC) {
+			width = dAB;
+			length = dAC;
+		} else {
+			width = dAB;
+			length = dBC;
+		}
+		
+		// 验证勾股定理：a² + b² = c²
+		if (Math.abs(width * width + length * length - diagonal * diagonal) > 0.001) {
 			throw new IllegalArgumentException("Can't form a Rectangle!");
 		}
 	}
@@ -43,6 +47,6 @@ public class Rectangle {
 	}
 	
 	public boolean isSquare() {
-		return (width == length);
+		return Math.abs(width - length) < 0.001;
 	}
 }
